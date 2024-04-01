@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="app" class="calculator">
+  <h2>Vue Calculator</h2>
+  <input type="number" v-model.number="num1" placeholder="Enter first number">
+  <input type="number" v-model.number="num2" placeholder="Enter second number">
+  <div class="btn-group">
+    <button @click="add">Add</button>
+    <button @click="subtract">Subtract</button>
+  </div>
+  <div class="btn-group">
+    <button @click="multiply">Multiply</button>
+    <button @click="divide">Divide</button>
+  </div>
+</div>
+
+<script>
+new Vue({
+  el: '#app',
+  data: {
+    num1: "",
+    num2: ""
+  },
+  methods: {
+    add: function() {
+      const result = this.num1 + this.num2;
+      alert(`Addition Result: ${result}`);
+    },
+    subtract: function() {
+      const result = this.num1 - this.num2;
+      alert(`Subtraction Result: ${result}`);
+    },
+    multiply: function() {
+      const result = this.num1 * this.num2;
+      alert(`Multiplication Result: ${result}`);
+    },
+    divide: function() {
+      if (this.num2 === 0) {
+        alert("Cannot divide by zero!");
+        return;
+      }
+      const result = this.num1 / this.num2;
+      alert(`Division Result: ${result}`);
+    }
+  }
+});
+</script>
+
+</body>
+</html>
